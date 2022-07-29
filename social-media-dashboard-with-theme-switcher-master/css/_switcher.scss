@@ -1,0 +1,61 @@
+.toggle-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-top: 1px solid var(--text-secondary);
+  
+    p {
+      color: var(--text-secondary);
+      font-weight: bold;
+      margin-right: 8px;
+    }
+  
+    @include for-tablet-portrait-up {
+      border: none;
+  
+    }
+  }
+  
+  .toggle {
+    cursor: pointer;
+    display: inline-block;
+  }
+  .toggle-switch {
+    display: inline-block;
+    background: $toggle-dark;
+    border-radius: 16px;
+    width: 58px;
+    height: 32px;
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+    &:before,
+    &:after {
+      content: "";
+    }
+    &:before {
+      display: block;
+      background: var(--hover-bg);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      transition: left 0.25s;
+    }
+    .toggle:hover &:before {
+      background: var(--bg);
+    }
+    .toggle-checkbox:checked + & {
+      background: $toggle-light;
+      &:before {
+        left: 30px;
+      }
+    }
+  }
+  .toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+  }
